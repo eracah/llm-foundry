@@ -8,7 +8,8 @@ import torch
 from composer import algorithms
 from composer.callbacks import (EarlyStopper, LRMonitor, MemoryMonitor,
                                 OptimizerMonitor, RuntimeEstimator,
-                                SpeedMonitor, SystemMetricsMonitor)
+                                SpeedMonitor)
+from composer.callbacks.system_metrics_monitor import SystemMetricsMonitor
 from composer.core import Evaluator
 from composer.datasets.in_context_learning_evaluation import \
     get_icl_task_dataloader
