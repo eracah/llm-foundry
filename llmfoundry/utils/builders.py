@@ -8,7 +8,7 @@ import torch
 from composer import algorithms
 from composer.callbacks import (EarlyStopper, LRMonitor, MemoryMonitor,
                                 OptimizerMonitor, RuntimeEstimator,
-                                SpeedMonitor)
+                                SpeedMonitor, SystemMetricsMonitor)
 from composer.core import Evaluator
 from composer.datasets.in_context_learning_evaluation import \
     get_icl_task_dataloader
@@ -58,6 +58,8 @@ def build_callback(name: str, kwargs: Dict[str, Any]):
         return ScheduledGarbageCollector(**kwargs)
     elif name == 'early_stopper':
         return EarlyStopper(**kwargs)
+    elif name == 'system_monitor':
+        return SystemMetricsMonitor(**kwargs)
     else:
         raise ValueError(f'Not sure how to build callback: {name}')
 
